@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {box-sizing: border-box;}
+
+    
+    
+    header {
+            padding: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                     
+    }
+
+    .alles {
+        border-bottom: 1px solid rgb(255, 255, 255);
+        box-shadow: 0px 10px 10px -5px rgb(183, 183, 183) ;
+        padding: 20px;
+    }
+
+    ul {
+            padding: 0;
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            justify-content: center; /*Mittig*/ /*brauch ich nicht*/
+    }
+
+    nav a {
+            text-decoration: none;
+            font-weight: bold; 
+    }
+
+    nav a:hover {
+            text-decoration: underline;
+    }
+
+
+    .header-nav, .logo {
+        display: flex;
+    }
+
+    img {
+        width: 150px;
+        height: auto;
+        border-radius: 5px;
+
+    }
+
+    .header-nav {
+            
+            align-items: center;
+            gap: 24px;
+    }
+
+    nav a {
+        color: black;
+    }
+
+    /*Medie Querrie Thema*/
+
+    @media (max-width: 768px) {
+    /* Wählt den Container aus, der Logo und Text nebeneinander hält */
+    .header-nav, .logo, nav ul {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 15px; /* Abstand zwischen den Elementen untereinander */
+    }
+
+    /* Falls das Logo oder der Inhalt noch Ränder hat, die stören */
+    .header-content {
+        text-align: center;
+    }
+.trennstrich { display: none;}
+    
+}
+
+/* Flexboxen*/ 
+
+
+.box {
+            
+    color: white;
+    padding: 70px;
+    margin: 0 auto;
+            
+}
+
+.flexi {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+.box a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.box:hover {
+    box-shadow: 0px 10px 10px -5px rgb(183, 183, 183) ;
+}
+
+/*Grid Themen hier */
+
+.seite {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /*Erste Zeile: Header
+                                                Zweite Zeile: Sidebar und Hauptinhalt
+                                                Dritte Zeile: Footer*/
+    gap: 20px;
+    min-height: 100vh;
+                                                     
+            
+}
+
+/*Footer-----------*/
+
+footer {
+    border-bottom: 1px solid rgb(255, 255, 255);
+    box-shadow: 0px 10px 10px -5px rgb(183, 183, 183) ;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+        
+}
+
+p{
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    </style>
+</head>
+<body>
+  <div class="seite">
+        <header>
+        <div class="alles">
+        
+            <nav class="header-nav">
+
+    <div class="logo"> <img src="/MeineWebsite/Werkstatt/Logo.png" alt="Mein Logo"> </div>
+
+            <div class="header-content">
+                <h1>Mery Rodou Project</h1>
+                <h3>Meine Projekte in ... </h3>
+                <ul>
+                <li><a href="banana.html">Startseite</a></li>
+                <li class="trennstrich">I</li>
+                <li><a href="übermich.html">Über mich</a></li>
+                <li class="trennstrich">I</li>
+                <li><a href="fotografie.html">Fotografie</a></li>
+                <li class="trennstrich">I</li>
+                <li><a href="studium.html">Studium</a></li>
+               
+                </ul>
+               
+            </div>
+            </nav>
+
+        </div>
+
+</header>
+
+<p>Hier habe ich mit Flexbox, Grid und Mediaqueries gearbeitet, genauso wie wir es im Unterricht gelernt haben :)</p>
+<main>
+<!--Flexbox Thema -->
+       
+        <ul>
+        <div class="flexi">
+            <div id="box" class="box"><li><a><p id="text">Box 1 tipp mich an und schaue was passiert</p></a></li></div> 
+            <div id="box1"class="box"><li><a>Box 2 tipp mich an und schaue was passiert</a></li></div>
+            <div id="box2"class="box"><li><a><p id="tja">Box 3 tipp mich an und schaue was passiert</p> </a></li></div>
+            <div id="box3"class="box"><li><a><p id="nope">Box 4 tipp mich an und schaue was passiert</p> </a></li></div>
+            <div id="box4"class="box"><li><a><p id="falsch"> Box 5 tipp mich an und schaue was passiert</p></a></li></div>
+            <div id="box5"class="box"><li><a><p id="antwort">Box 6 tipp mich an und schaue was passiert</p></a></li></div>
+        </div>
+        </ul>
+
+   </main>     
+
+
+   <footer>
+  
+
+    <p>&copy; 2026 Mery Webpublishing</p>
+   
+    <nav class="footer-links">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+      <a href="#">Kontakt</a>
+      <p>gearbeitet mit Media Queries, Flexbox und Grid</p>
+    </nav>
+
+   
+   
+
+</footer>
+
+<script>
+    document.getElementById("box").onclick=function(){
+       document.getElementById("text").innerHTML="Box 1 getippt <br>-<br>Warum ist die Banane krum? <br>Suche die richtige Box, die die Antwort enthält."
+    }
+
+    document.getElementById("box1").onclick=function(){
+        prompt('Hier kannst du was reinschreiben aber um ehrlich zu sein wird sonst weiter nichts passieren.')
+
+    }
+
+    
+
+    document.getElementById("box2").onclick=function(){
+        this.style.backgroundColor="#524528";
+        document.getElementById("tja").innerHTML="Box 3 getippt <br>-<br>Tja, verkackt.";
+        document.getElementById("tja").style.color="white";
+
+    }
+
+    document.getElementById("box3").onclick=function(){
+         this.style.backgroundColor="#524528";
+         document.getElementById("nope").innerHTML="Jetzt hast du Box 4 getippt<br>-<br>Nope";
+        document.getElementById("nope").style.color="white";
+         
+    }
+
+     document.getElementById("box4").onclick=function(){
+        this.style.backgroundColor="#524528";
+        document.getElementById("falsch").innerHTML="Box 5 getippt<br>-<br>Auch falsch hehe";
+        document.getElementById("falsch").style.color="white";
+    }
+
+    document.getElementById("box5").onclick=function(){
+        document.getElementById("antwort").innerHTML="Antwort: <br> Weil sie cool ist. <br>Juhuuu endlich geschafft. <br> Hat aber lange gedaurt ey!"
+    }
+</script>
+
+</body>
+</html>

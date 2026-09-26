@@ -1,0 +1,156 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+header {
+  padding: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.alles {
+  border-bottom: 1px solid rgb(255, 255, 255);
+  box-shadow: 0px 10px 10px -5px rgb(183, 183, 183);
+  padding: 20px;
+}
+
+nav ul {
+  padding: 0;
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  justify-content: center; /*Mittig*/ /*brauch ich nicht*/
+}
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+nav a {
+  color: black;
+}
+
+.header-nav, .logo {
+  display: flex;
+}
+
+img {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.header-nav {
+  align-items: center;
+  gap: 24px;
+}
+
+/*Medie Querrie Thema*/
+@media (max-width: 768px) {
+  /* Wählt den Container aus, der Logo und Text nebeneinander hält */
+  .header-nav, .logo, nav ul {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+    gap: 15px; /* Abstand zwischen den Elementen untereinander */
+  }
+  /* Falls das Logo oder der Inhalt noch Ränder hat, die stören */
+  .header-content {
+    text-align: center;
+  }
+  .trennstrich {
+    display: none;
+  }
+}
+/*Header einstellungen sind hier fertig*/
+p, h1 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.darkmode {
+  background-color: #524528;
+  color: #e0e0e0;
+}
+
+.darkmode nav a {
+  color: #e0e0e0 !important;
+}
+
+button {
+  padding: 20px;
+  border-radius: 5px solid white;
+  background-color: #524528;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 40px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+#addBtn {
+  padding: 5px;
+}
+
+#counter {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.haupt-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Teilt die Seite in 2 exakt gleiche Spalten */
+  gap: 40px; /* Erzeugt einen unsichtbaren Abstand in der Mitte */
+  padding: 40px; /* Abstand zu den Bildschirmrändern */
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Optional: Stile für die rechte Seite, damit Sie sehen, wo sie arbeitet */
+.rechte-seite {
+  padding: 20px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  box-shadow: 0px 10px 10px -5px rgb(183, 183, 183);
+  padding: 20px;
+  /* border-left: 1px dashed #ccc; */ /* Wenn Sie den Trennstrich doch mal kurz sehen wollen */
+}
+
+/*Hier kommt das Design für das Spiel*/
+p, h2, h3 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Das Gehäuse für das Spiel */
+#spielfeld {
+  width: 100%;
+  height: 400px;
+  background-color: #f0f0f0;
+  border: 2px dashed #b7b7b7;
+  border-radius: 10px;
+  position: relative; /* Wichtig, damit der Ball im Kasten bleibt */
+  overflow: hidden; /* Verhindert, dass der Ball rausrutscht */
+  box-shadow: 0px 10px 10px -5px rgb(183, 183, 183);
+}
+
+/* Der flüchtende Ball */
+#flucht-ball {
+  width: 50px;
+  height: 50px;
+  background-color: #524528;
+  border-radius: 50%; /* Macht das Quadrat zum Kreis */
+  position: absolute;
+  left: 40%; /* Startposition */
+  top: 40%;
+  cursor: pointer;
+  transition: all 0.1s ease; /* Macht die Flucht-Bewegung geschmeidig */
+}
+
+/* Farbwechsel im Darkmode, falls gewünscht */
+.darkmode #spielfeld {
+  background-color: #524528;
+  border-color: #524528;
+}
+
+.darkmode #flucht-ball {
+  background-color: #ffffff; /* Macht den Ball weiß */
+}/*# sourceMappingURL=Test.css.map */

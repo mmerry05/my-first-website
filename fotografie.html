@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>banana.html</title>
+    <style>
+
+* {box-sizing: border-box;}
+
+     p{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+    
+    header {
+            padding: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                     
+    }
+
+    .alles {
+        border-bottom: 1px solid rgb(255, 255, 255);
+        box-shadow: 0px 10px 10px -5px rgb(183, 183, 183) ;
+        padding: 20px;
+    }
+
+    ul {
+            padding: 0;
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            justify-content: center; /*Mittig*/ /*brauch ich nicht*/
+    }
+
+    nav a {
+            text-decoration: none;
+            font-weight: bold; 
+    }
+
+    nav a:hover {
+            text-decoration: underline;
+    }
+
+
+    .header-nav, .logo {
+        display: flex;
+    }
+
+    img {
+        width: 150px;
+        height: auto;
+        border-radius: 5px;
+
+    }
+
+    .header-nav {
+            
+            align-items: center;
+            gap: 24px;
+    }
+
+    nav a {
+        color: black;
+    }
+
+    /*Medie Querrie Thema*/
+
+    @media (max-width: 768px) {
+    /* Wählt den Container aus, der Logo und Text nebeneinander hält */
+    .header-nav, .logo, nav ul {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 15px; /* Abstand zwischen den Elementen untereinander */
+    }
+
+    /* Falls das Logo oder der Inhalt noch Ränder hat, die stören */
+    .header-content {
+        text-align: center;
+    }
+.trennstrich { display: none;}
+    
+}
+
+
+
+
+
+
+
+
+       @media screen and (max-width: 600px) { 
+      .großerabstand { margin-top: 10px; 
+     }  
+    }
+
+    @media screen and (min-width: 768px) {
+    .flex {
+      display: flex;
+      flex-direction: row;  /* Nebeneinander anordnen */
+      
+    }}
+
+    /* Flexboxen Container */
+.flexi {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px; /* Erzeugt Abstand zwischen den Boxen */
+    justify-content: center; /* Zentriert die Boxen auf dem Bildschirm */
+    padding: 0;
+    list-style: none; /* Entfernt die Listenpunkte der Boxen */
+}
+
+/* Die Boxen selbst */
+.box {
+    border: 1px solid #ccc; /* Macht die Box-Grenzen sichtbar */
+    border-radius: 8px; /* Leicht abgerundete Ecken */
+    padding: 40px 20px; /* Innenabstand für den Text */
+    background-color: #fff; /* Weißer Hintergrund für die Box */
+    text-align: center;
+    width: 250px; /* Gibt den Boxen eine einheitliche Breite */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Verhindert, dass der Text weiß und unsichtbar wird */
+.box a {
+    text-decoration: none;
+    color: black; /* Textfarbe auf Schwarz ändern */
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Hover-Effekt optimieren */
+.box:hover {
+    transform: translateY(-5px); /* Box hebt sich leicht an */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); /* Deutlicherer Schatten */
+}
+
+
+       .img {
+            width: 500px;
+            height: auto;
+            padding: 200px;
+            /* Das ist der Zauber-Befehl: */
+        view-timeline-name: --image-reveal;
+        view-timeline-axis: block;
+    
+        animation: erscheinen linear both;
+        animation-timeline: --image-reveal;
+    
+        /* Die Animation soll nur am Anfang des Scrollens passieren */
+        animation-range: entry 70% cover 60%;
+        }
+
+  .img {
+    width: 100%; /* ÄNDERUNG: Nutzt jetzt die volle Breite des Blocks */
+    max-width: 800px; /* NEU: Verhindert, dass das Bild unendlich riesig wird */
+    height: auto;
+    padding: 0; /* ÄNDERUNG: Entfernt das quetschende Padding komplett */
+    display: block;
+    margin: 0 auto; /* NEU: Zentriert das breite Bild im Kasten */
+    
+    /* Ihre Scroll-Animation bleibt bestehen: */
+    view-timeline-name: --image-reveal;
+    view-timeline-axis: block;
+    animation: erscheinen linear both;
+    animation-timeline: --image-reveal;
+    animation-range: entry 70% cover 60%;
+}
+
+@keyframes erscheinen {
+    from {
+        opacity: 0;
+        transform: translateY(100px) scale(0.6); /* ÄNDERUNG: Startet bei 60% Größe statt winzigen 9% */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+.blöcke {
+        border-bottom: 1px rgb(255, 255, 255);
+        box-shadow: 0px 10px 10px -5px rgb(183, 183, 183) ;
+        padding: 20px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+}
+
+
+
+    </style>
+</head>
+<body>
+     <header>
+        <div class="alles">
+        
+            <nav class="header-nav">
+
+    <div class="logo"> <img src="/MeineWebsite/Werkstatt/Logo.png" alt="Mein Logo"> </div>
+
+            <div class="header-content">
+                <h1>Mery Rodou Project</h1>
+                <h3>Meine Projekte in ... </h3>
+                <ul>
+                <li><a href="banana.html">Startseite</a></li>
+                <li class="trennstrich">I</li>
+                <li><a href="übermich.html">Über mich</a></li>
+                <li class="trennstrich">I</li>
+                <li><a href="fotografie.html">Fotografie</a></li>
+                <li class="trennstrich">I</li>
+                <li><a href="studium.html">Studium</a></li>
+               
+                </ul>
+                
+               
+            </div>
+            </nav>
+
+        </div>
+
+</header>
+  <p>Hier habe ich einpaar Bilder, die ich in meinen vergangenen Urlauben geschossen habe. 
+    </p>
+
+    <div class="blöcke">
+    <img class="img" src="/MeineWebsite/Werkstatt/ny.JPG"> 
+    </div>
+
+    <div class="blöcke">
+    <img class="img" src="/MeineWebsite/Werkstatt/cat.jpg">
+    </div>
+
+    <div class="blöcke">
+    <img class="img" src="/MeineWebsite/Werkstatt/auto.jpg">
+    </div>
+
+    <div class="blöcke">
+    <img class="img" src="/MeineWebsite/Werkstatt/amaya.jpg">
+    </div>
+
+    <div class="blöcke">
+    <img class="img" src="/MeineWebsite/Werkstatt/beach.jpg">
+    </div>
+
+    <footer>
+  
+
+    <p>&copy; 2026 Mery Webpublishing</p>
+   
+    <nav class="footer-links">
+      <a href="#">Datenschutz</a>
+      <a href="#">Impressum</a>
+      <a href="#">Kontakt</a>
+      <p>gearbeitet mit Animationen</p>
+    </nav>
+
+   
+   
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Test.css">
+ 
+</head>
+<body>
+    <header>
+    <div class="alles">
+        <nav class="header-nav">
+            <div class="logo"> 
+                <img src="/MeineWebsite/Werkstatt/Logo.png" alt="Mein Logo"> 
+            </div>
+            <div class="header-content">
+                <h1>Mery Rodou Project</h1>
+                <h3>Meine Projekte in ... </h3>
+                <ul>
+                    <li><a href="banana.html">Startseite</a></li>
+                    <li class="trennstrich">I</li>
+                    <li><a href="übermich.html">Über mich</a></li>
+                    <li class="trennstrich">I</li>
+                    <li><a href="fotografie.html">Fotografie</a></li>
+                    <li class="trennstrich">I</li>
+                    <li><a href="studium.html">Studium</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<main class="haupt-layout">
+    
+    <!-- LINKE SEITE (meine To-Do-Liste) -->
+    <div class="linke-seite">
+        <p>Hier habe ich mein Fokus auf JavaScript gesetzt als perfekte Übung für die Klausur. Ebefalls habe ich mit SASS gearbeitet, Variablen und Nesting.</p>
+        <button id="button" type="button">Darkmode an/ aus</button>
+        <h3>Hier kannst du deine Todo´s aufschreiben</h3>
+        <div id="counter">Offene Aufgaben: 0</div>
+        
+        <input type="text" id="todoInput" placeholder="Neue Aufgabe...">
+        <button type="button" id="addBtn">Hinzufügen</button>
+        <ul id="todoList"></ul>
+        
+    </div>
+
+    <!-- RECHTE SEITE (mein Spiel) -->
+    <div class="rechte-seite">
+        <h2>Hier entsteht das JavaScript-Spiel</h2>
+    
+                <!-- Hier kommt später Ihr Spiel-Code rein -->
+                <h2>Fang den Ball, wenn du kannst!</h2>
+            <p>Versuche, den Kreis mit der Maus zu berühren. Und klick drauf wenn du nah dran bist.</p>
+            
+            <!-- Das Spielfeld, in dem sich der Ball bewegt -->
+            <div id="spielfeld">
+                <div id="flucht-ball"></div>
+            </div>
+             <button id="hilfe" type="hilfe">Hilfe</button>
+             <button id="info" type="button">Noch mehr Informationen dazu</button>
+            
+</div>
+    </div>
+
+   
+
+</main>
+
+<script>
+        
+        document.getElementById("button").onclick = function() {
+            document.body.classList.toggle("darkmode");
+
+        };
+
+   
+        let counter = document.getElementById("counter");
+        let list = document.getElementById("todoList");
+        let input = document.getElementById("todoInput");
+        let addBtn = document.getElementById("addBtn");
+
+        function updateCounter(){
+            counter.textContent = "Offene Aufgaben: " + list.children.length;
+        }
+
+        addBtn.onclick = function(){
+            // Verhindert das Hinzufügen von leeren Aufgaben
+            if (input.value.trim() === "") return;
+
+            let li = document.createElement("li");
+            li.innerHTML = input.value + " <button>Löschen</button>";
+            
+            li.querySelector("button").onclick = function(){
+                li.remove();
+                updateCounter();
+            };
+
+            // KORREKTUR 1: Das neue Element muss tatsächlich in die Liste eingefügt werden
+            list.appendChild(li);
+            
+            // KORREKTUR 2: Der Zähler muss auch beim Hinzufügen aktualisiert werden
+            updateCounter();
+            
+            // Komfort-Funktion: Eingabefeld nach dem Hinzufügen leeren
+            input.value = "";
+        };
+        
+
+
+        //Das spiel 
+
+        document.getElementById("hilfe").onclick=function(){
+            alert('ich habe es so entwickelt, dass man leider nicht erfolgreich sein kann, aber vielen Dank für deine Geduld. Das ist eine sehr schöne Eigenschaft!')
+        }
+
+        document.getElementById("info").onclick=function(){
+            confirm ('Es war nicht wirklich leicht das zu coden, zunnächst kam die Idee von meiner Kommilitonin Lena und ich fand es so cool, dass ich sowas ähnliches auch coden wollte.')
+        }
+
+        
+
+    
+
+        let ball = document.getElementById("flucht-ball");
+        let spielfeld = document.getElementById("spielfeld");
+
+// Funktion wird ausgelöst, sobald die Maus den Ball berührt
+ball.onmouseover = function() {
+    // Ermittelt die verfügbare Breite und Höhe im Spielfeld abzüglich der Ballgröße
+    let maxBreite = spielfeld.clientWidth - ball.clientWidth;
+    let maxHoehe = spielfeld.clientHeight - ball.clientHeight;
+
+    // Berechnet zufällige neue Koordinaten (Zufallszahl zwischen 0 und Maximum)
+    let zufallX = Math.floor(Math.random() * maxBreite);
+    let zufallY = Math.floor(Math.random() * maxHoehe);
+
+    // Setzt den Ball an die neue zufällige Position
+    ball.style.left = zufallX + "px";
+    ball.style.top = zufallY + "px";
+};
+
+// Kleiner Bonus: Was passiert, wenn man es doch schafft, ihn zu klicken?
+ball.onclick = function() {
+    alert("Herzlichen Glückwunsch! Du hast den Ball erwischt! 🎉");
+};
+
+
+</script>
+
+
+
+</body>
+</html>
